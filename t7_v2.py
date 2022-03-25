@@ -41,13 +41,16 @@ class Patrat(FormaGeometrica):
     def __init__(self, __latura):
         self.__latura = __latura
 
-    def get_latura(self):
+    @property
+    def latura(self):
         return self.__latura
 
-    def set_latura(self, latura_patratului):
+    @latura.setter
+    def latura(self, latura_patratului):
         self.__latura = latura_patratului
 
-    def del_latura(self):
+    @latura.deleter
+    def latura(self):
         self.__latura = 0  # pun 0, cu None imi da eroare dupa del
 
     def aria(self):
@@ -75,13 +78,16 @@ class Cerc(FormaGeometrica):
     def __init__(self, __raza):
         self.__raza = __raza
 
-    def get_raza(self):
+    @property
+    def raza(self):
         return self.__raza
 
-    def set_raza(self, raza_cercului):
+    @raza.setter
+    def raza(self, raza_cercului):
         self.__raza = raza_cercului
 
-    def del_raza(self):
+    @raza.deleter
+    def raza(self):
         self.__raza = 0  # daca pun Cerc.__raza = None imi da eroare la calcul arie
 
     def aria(self):
@@ -90,20 +96,15 @@ class Cerc(FormaGeometrica):
 
     def descriere(self):
         print("Eu nu am colturi")
+
+
 patrat_test = Patrat(1)
 cerc_test = Cerc(1)
-print(cerc_test.descriere())
-cerc_test.set_raza(5)
-print(cerc_test.aria())
-print(cerc_test.get_raza())
-print(cerc_test.del_raza())
-print(cerc_test.get_raza())
-print(cerc_test.aria())
-patrat_test.set_latura(6)
+patrat_test.latura =6
 print(patrat_test.aria())
-print(patrat_test.descriere())
-print(patrat_test.get_latura())
-patrat_test.del_latura()
+del patrat_test.latura
 print(patrat_test.aria())
-print(patrat_test.descriere())
-print(patrat_test.get_latura())
+cerc_test.raza = 5
+print(cerc_test.aria())
+del cerc_test.raza
+print(cerc_test.aria())
