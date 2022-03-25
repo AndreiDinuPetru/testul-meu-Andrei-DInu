@@ -100,7 +100,7 @@ class Cerc(FormaGeometrica):
 
 patrat_test = Patrat(1)
 cerc_test = Cerc(1)
-patrat_test.latura =6
+patrat_test.latura = 6
 print(patrat_test.aria())
 del patrat_test.latura
 print(patrat_test.aria())
