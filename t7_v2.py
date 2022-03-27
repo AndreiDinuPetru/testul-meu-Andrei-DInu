@@ -108,3 +108,4 @@ cerc_test.raza = 5
 print(cerc_test.aria())
 del cerc_test.raza
 print(cerc_test.aria())
+print(f"_______")
